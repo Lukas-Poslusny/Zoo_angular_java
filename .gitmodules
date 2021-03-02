@@ -1,0 +1,3 @@
+[submodule "MyThirdApp1"]
+	path = MyThirdApp1
+	url = https://github.com/Lukas-Poslusny/MyThirdApp
