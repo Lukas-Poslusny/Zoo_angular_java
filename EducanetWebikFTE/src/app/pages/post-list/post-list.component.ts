@@ -13,7 +13,7 @@ export class PostListComponent implements OnInit {
   constructor(private httpclient: HttpClient) { }
 
   ngOnInit(): void {
-    this.httpclient.get<Post[]>('/api/animals')
+    this.httpclient.get<Post[]>('api/animals')
       .subscribe((data) => {
         this.posts = data;
         console.log(data);
