@@ -25,7 +25,6 @@ export class RegisterComponent implements OnInit {
       .subscribe((data) => {
           this.posts = data;
           console.log(this.username, this.password);
-          console.log(data);
         },
         () => {
           this.duplicateRegister = true;

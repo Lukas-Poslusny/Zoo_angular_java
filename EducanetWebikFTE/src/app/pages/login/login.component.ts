@@ -9,8 +9,8 @@ import {Register} from '../../models/register.interface';
 })
 export class LoginComponent implements OnInit {
 
-  usernameLog: string;
-  passwordLog: string;
+  username: string;
+  password: string;
 
   constructor(private httpclient: HttpClient) { }
   posts: Register[] = [];
@@ -18,9 +18,23 @@ export class LoginComponent implements OnInit {
   loginUser(): void {
     this.httpclient.get<Register[]>('api/users/all')
       .subscribe((data) => {
-        console.log(data);
-      },
-        () => {});
+          this.posts = data;
+          console.log(this.username, this.password);
+          console.log(data);
+        });
+
+    for (const post of this.posts) {
+      console.log(post.password, post.password, 'this is in the for ');
+      if (post.username === this.username && post.password === this.password) {
+
+        this.httpclient.post<Register[]>('api/logged', {username: this.username, password: this.password})
+          .subscribe((data) => {
+            console.log(data);
+            console.log('logged in');
+          });
+        break;
+      }
+    }
   }
 
 
