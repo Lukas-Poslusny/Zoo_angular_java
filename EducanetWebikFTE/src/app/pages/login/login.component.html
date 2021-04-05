@@ -1,10 +1,28 @@
-
-
-
-<form (ngSubmit)="loginUser()" #form="ngForm">
-  <div class="form-group">
-    <input type="form" name="username" [(ngModel)] ="username" class="form-control" placeholder="Username">
-    <input type="form" name="password" [(ngModel)] ="password" class="form-control" placeholder="Password">
+<div id="login">
+  <h3 class="text-center text-white pt-5">Login</h3>
+  <div class="container">
+    <div id="login-row" class="row justify-content-center align-items-center">
+      <div id="login-column" class="col-md-6">
+        <div id="login-box" class="col-md-12">
+          <form (ngSubmit)="loginUser()" #form="ngForm">
+            <div class="form-group">
+              <label class="text-info">Username:</label><br>
+              <input type="username" name="username" [(ngModel)]="username" class="form-control" placeholder="Username">
+            </div>
+            <div class="form-group">
+              <label class="text-info">Password:</label><br>
+              <input type="password" name="password" [(ngModel)]="password" class="form-control" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-secondary">Login</button>
+            </div>
+            <div id="register-link" class="text-right">
+              <a routerLink='/register' class="text-info">Register here</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
-  <button type="submit" class="btn btn-secondary">Submit</button>
-</form>
+</div>
+

@@ -1,11 +1,33 @@
-<table>
+<h1>Create an animal</h1>
+<form>
+  <div class="form-group">
+    <input type="form" name="name" [(ngModel)]="name" class="form-control" id="name" placeholder="name">
+  </div>
+  <div class="form-group">
+    <input type="form" name="age" [(ngModel)]="age" class="form-control" id="age" placeholder="age">
+  </div>
+  <div class="form-group">
+    <input type="form" name="gender" [(ngModel)]="gender" class="form-control" id="gender" placeholder="gender">
+  </div>
+  <div class="form-group">
+    <input type="form" name="weight" [(ngModel)]="weight" class="form-control" id="weight" placeholder="weight">
+  </div>
+
+
+  <button type="submit" class="btn btn-primary" (click)="createAnimal()">Create</button>
+</form>
+
+
+<table class="table">
   <thead>
   <tr>
-    <th>ID</th>
-    <th>name</th>
-    <th>age</th>
-    <th>weight</th>
-    <th>gender</th>
+    <th scope="col">ID</th>
+    <th scope="col">name</th>
+    <th scope="col">age</th>
+    <th scope="col">weight</th>
+    <th scope="col">gender</th>
+    <th scope="col">Edit</th>
+    <th scope="col">Delete</th>
   </tr>
   </thead>
 
@@ -16,6 +38,9 @@
     <th>{{post.age}}</th>
     <th>{{post.weight}}</th>
     <th>{{post.gender}}</th>
+    <th><a routerLink='("/detail/" + id)' class="text-info">Edit</a></th>
+    <th><button class="btn btn-secondary" (click)="deleteAnimal(post.id)">Delete</button></th>
+
   </tr>
   </tbody>
 </table>
